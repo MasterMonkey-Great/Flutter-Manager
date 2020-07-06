@@ -145,6 +145,12 @@ export PATH=/Users/你电脑当前用户名/Documents/flutter/bin:$PATH
 
 ```
 
+Dart 环境变量配置
+
+```
+export PATH=/Users你电脑当前用户名/Documents/FlutterMatePackage/flutter/bin/cache/dart-sdk/bin:$PATH
+```
+
 
 #### 运行 flutter doctor
 
@@ -221,6 +227,51 @@ brew install ideviceinstaller ios-deploy
 *  安装 Flutter 插件
 
 *  安装 Awesome Flutter  Snippets 插件
+
+
+###  真机联调
+
+#### 遵循Xcode签名流程来配置您的项目:
+
+* 在你Flutter项目目录中通过 open ios/Runner.xcworkspace 打开默认的``Xcode workspace``在Xcode中，选择导航面板左侧中的Runner项目
+
+* 在Runner target设置页面中，确保在 ``常规>签名>团队`` 下选择了您的开发团队。当您选择一个团队时，Xcode会创建并下载开发证书，向您的设备注册您的帐户，并创建和下载配置文件（如果需要）
+
+* 要开始您的第一个iOS开发项目，您可能需要使用您的Apple ID登录Xcode
+
+* 任何Apple ID都支持开发和测试，但如果要将应用发布到App Store则需要一个99美刀的开发者账号。
+
+
+* 当你第一次attach真机设备进行iOS开发时，需要同时信任你的Mac和该设备上的开发证书。首次将iOS设备连接到Mac时,请在对话框中选择 Trust。
+
+
+
+#### 问题 一 升级Xcode11.4以上版本 导致Flutter项目报错Building for iOS, but the linked and embedded framework 'App.framework'的处理
+
+##### 报错信息
+
+```
+Runner.xcodeproj Building for iOS, but the linked and embedded framework 'App.framework' was built f
+
+```
+
+#### 首先Clean下项目，在项目根目录下：
+
+```
+flutter clean
+
+```
+
+#### 然后删除``ios/Flutter/App.framework：``
+
+```
+rm -rf ios/Flutter/App.framework
+
+```
+
+
+
+
 
 
 
